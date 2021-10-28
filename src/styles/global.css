@@ -1,0 +1,17 @@
+/**
+ * Force the height of the content so mobile viewports
+ * don't get cut off.
+ */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/**
+ * Don't allow mobile pull to refresh.
+ */
+html,
+body {
+  overscroll-behavior-y: contain;
+}

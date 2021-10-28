@@ -1,0 +1,8 @@
+*.json
+constants/
+scripts/
+src/serviceWorkerRegistration.js
+src/service-worker.js
+src/styles/fonts.css
+build/
+index.tsx

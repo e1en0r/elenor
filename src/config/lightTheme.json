@@ -1,0 +1,7 @@
+{
+  "box-shadow-card": "\n    0px 1px 6px 0px rgba(0, 0, 0, .1)\n  ",
+  "card-header-background-color": "#393945",
+  "card-header-text-color": "#fff",
+  "card-header-border-color": "rgba(255, 255, 255, 0.2)",
+  "line-loader-color": "hsla(240, 11.5%, 10.2%, 0.1)"
+}

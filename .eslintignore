@@ -1,0 +1,11 @@
+*.json
+build/
+scripts/
+src/**/*.test.js
+src/postcss.config.js
+src/styles/
+src/icons/
+src/service-worker.js
+src/serviceWorkerRegistration.js
+s3/
+webpack.*.js
