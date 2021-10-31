@@ -6,7 +6,7 @@ import { PagePaper } from 'components/PagePaper';
 
 export const FourOhFour = (): React.ReactElement => {
   return (
-    <PagePaper>
+    <PagePaper centered flexible>
       <Helmet>
         <title>{`${APP_NAME} - 404`}</title>
       </Helmet>

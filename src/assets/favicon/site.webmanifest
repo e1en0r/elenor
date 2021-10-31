@@ -1,6 +1,6 @@
 {
-    "name": "elenor.net",
-    "short_name": "elenor.net",
+    "name": "Hello world",
+    "short_name": "Elenor",
     "icons": [
         {
             "src": "android-chrome-192x192.png",

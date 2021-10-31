@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AccessibilityProvider, ThemeProvider } from '@phork/phorkit';
+import { AccessibilityProvider, Modals, ThemeProvider } from '@phork/phorkit';
 import { AppContent } from 'components/AppContent';
 
 const App = (): React.ReactElement => {
@@ -8,9 +8,11 @@ const App = (): React.ReactElement => {
   return (
     <ThemeProvider themeId={themeId}>
       <AccessibilityProvider>
-        <Router>
-          <AppContent />
-        </Router>
+        <Modals>
+          <Router>
+            <AppContent />
+          </Router>
+        </Modals>
       </AccessibilityProvider>
     </ThemeProvider>
   );

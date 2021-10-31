@@ -122,6 +122,7 @@ const configuration = {
       constants$: path.join(src, 'constants'),
       hooks$: path.join(src, 'hooks'),
       icons$: path.join(src, 'icons'),
+      modals$: path.join(src, 'modals'),
       pages$: path.join(src, 'pages'),
       postcss$: path.join(src, 'postcss'),
       styles$: path.join(src, 'styles'),

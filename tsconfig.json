@@ -26,6 +26,7 @@
       "constants": ["src/constants"],
       "hooks": ["src/hooks"],
       "icons": ["src/icons"],
+      "modals": ["src/modals"],
       "pages": ["src/pages"],
       "postcss": ["src/postcss"],
       "styles": ["src/styles"],

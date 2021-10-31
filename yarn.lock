@@ -1637,10 +1637,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@phork/phorkit@^10.2.1":
-  version "10.2.1"
-  resolved "https://npm.pkg.github.com/download/@phork/phorkit/10.2.1/fe8e373214a23be749d12829c41af224e3fa3fd69e2bcc0a4a106cce46995b43#33bbf1ba4445057aff82f37d16ab3843dc463a53"
-  integrity sha512-JYiFQWR9gHk04TBtds2G0x+y0/SOsgR9UTi1C08ooDlPTliee5KFqM915B9OXNojh43wR6giJ/il83d+AGl+fw==
+"@phork/phorkit@^10.4.1":
+  version "10.4.1"
+  resolved "https://npm.pkg.github.com/download/@phork/phorkit/10.4.1/bde85f5e419a702937494f6d0c2c5c25c05b62ed86b1f6b47b558e2b5f24c516#838cfe42919f89ec7b228d8c352c93ead88dc1b7"
+  integrity sha512-H3+k9y+1NOQbMoCr2I/xHpiaLu/kG+YHi/toJm90OqwvSvKVAkDSEavtvk7rJBuz6N4o5IE97KnCr+hiw333+g==
   dependencies:
     "@emotion/css" "^11.1.3"
     "@emotion/react" "^11.1.5"
