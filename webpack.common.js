@@ -166,6 +166,10 @@ const configuration = {
           to: path.join(build, 'static', 'favicon'),
         },
         {
+          from: path.join(assets, 'scripts'),
+          to: path.join(build, 'static', 'scripts'),
+        },
+        {
           from: path.resolve(__dirname, 'src', 'public'),
           to: build,
         },
