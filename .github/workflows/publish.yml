@@ -23,6 +23,10 @@ jobs:
 
       - name: Build the site
         run: yarn build-deps && yarn build
+        env:
+          NODE_ENV: production
+          NAME: Hello world
+          PUBLIC_URL: https://elenor.net
 
       - name: Deploy the site
         uses: burnett01/rsync-deployments@4.1
