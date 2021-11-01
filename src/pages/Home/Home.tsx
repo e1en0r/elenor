@@ -69,6 +69,7 @@ export const Home = memo(function Home() {
                   as="a"
                   colorId="P10"
                   href={PHORKIT}
+                  rel="noopener"
                   target="_blank"
                   {...buttonProps}
                   size={undefined}
@@ -82,26 +83,61 @@ export const Home = memo(function Home() {
                 <Flex wrap alignItems="center" direction="row">
                   <Flex alignItems="center" direction="row">
                     <Rhythm m={2}>
-                      <ColoredIconButton<'a'> as="a" colorId="P10" href={GITHUB} target="_blank" {...buttonProps}>
+                      <ColoredIconButton<'a'>
+                        as="a"
+                        colorId="P10"
+                        href={GITHUB}
+                        rel="noopener"
+                        target="_blank"
+                        {...buttonProps}
+                      >
                         <GithubIcon size={20} title="Github" />
                       </ColoredIconButton>
 
-                      <ColoredIconButton<'a'> as="a" colorId="P15" href={INSTAGRAM} target="_blank" {...buttonProps}>
+                      <ColoredIconButton<'a'>
+                        as="a"
+                        colorId="P15"
+                        href={INSTAGRAM}
+                        rel="noopener"
+                        target="_blank"
+                        {...buttonProps}
+                      >
                         <InstagramIcon size={20} title="Instagram" />
                       </ColoredIconButton>
 
-                      <ColoredIconButton<'a'> as="a" colorId="P20" href={TWITTER} target="_blank" {...buttonProps}>
+                      <ColoredIconButton<'a'>
+                        as="a"
+                        colorId="P20"
+                        href={TWITTER}
+                        rel="noopener"
+                        target="_blank"
+                        {...buttonProps}
+                      >
                         <TwitterIcon size={20} title="Twitter" />
                       </ColoredIconButton>
                     </Rhythm>
                   </Flex>
                   <Flex alignItems="center" direction="row">
                     <Rhythm m={2}>
-                      <ColoredIconButton<'a'> as="a" colorId="P25" href={LINKED_IN} target="_blank" {...buttonProps}>
+                      <ColoredIconButton<'a'>
+                        as="a"
+                        colorId="P25"
+                        href={LINKED_IN}
+                        rel="noopener"
+                        target="_blank"
+                        {...buttonProps}
+                      >
                         <LinkedInIcon size={20} title="LinkedIn" />
                       </ColoredIconButton>
 
-                      <ColoredIconButton<'a'> as="a" colorId="P30" href={EMAIL} target="_blank" {...buttonProps}>
+                      <ColoredIconButton<'a'>
+                        as="a"
+                        colorId="P30"
+                        href={EMAIL}
+                        rel="noopener"
+                        target="_blank"
+                        {...buttonProps}
+                      >
                         <EmailIcon size={20} title="Email" />
                       </ColoredIconButton>
 
