@@ -28,7 +28,7 @@ jobs:
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avz --delete --exclude="files" --exclude="archive" --exclude="keybase.txt" --exclude=".well-known"
-          path: build
+          path: build/
           remote_path: ${{ secrets.DEPLOY_PATH }}
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
