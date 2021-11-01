@@ -19,10 +19,10 @@ const iconSources: {
   other: IconSource;
   theNounProject: IconSource;
 } = {
-  flatIcon: ({ name, url }) => <div>Icon made by <a href={url} title={name}>{name}</a> from <a href="https://www.flaticon.com/" title="Flaticon">flaticon.com</a></div>,
-  freeIcons: ({ name, url }) =>   <div>Icon made by <a href={url} title={name}>{name}</a> on <a href="https://freeicons.io" title="freeicons.io">freeicons.io</a></div>,
-  other: ({ name, url }) => <div>Icon made by <a href={url} title={name}>{name}</a></div>,
-  theNounProject: ({ name, url }) => <div>Icon made by <a href={url} title={name}>{name}</a> from <a href="https://thenounproject.com/" title="the Noun Project">the Noun Project</a></div>
+  flatIcon: ({ name, url }) => <div>Icon made by <a href={url} rel="noopener" title={name}>{name}</a> from <a href="https://www.flaticon.com/" title="Flaticon">flaticon.com</a></div>,
+  freeIcons: ({ name, url }) =>   <div>Icon made by <a href={url} rel="noopener" title={name}>{name}</a> on <a href="https://freeicons.io" title="freeicons.io">freeicons.io</a></div>,
+  other: ({ name, url }) => <div>Icon made by <a href={url} rel="noopener" title={name}>{name}</a></div>,
+  theNounProject: ({ name, url }) => <div>Icon made by <a href={url} rel="noopener" title={name}>{name}</a> from <a href="https://thenounproject.com/" title="the Noun Project">the Noun Project</a></div>
 }
 
 export const iconCredits: IconCredit[] = [

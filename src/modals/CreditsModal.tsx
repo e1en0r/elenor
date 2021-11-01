@@ -34,7 +34,7 @@ export const CreditsModal = ({ id: initId, ...props }: CreditsModalProps): JSX.E
                 </Rhythm>
                 and
                 <Rhythm ml={1}>
-                  <Link href="https://phorkit.phork.org" rel="noopener noreferrer" target="_blank">
+                  <Link href="https://phorkit.phork.org" rel="noopener" target="_blank">
                     Phork/it
                   </Link>
                 </Rhythm>
