@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { Rhythm } from '@phork/phorkit';
-import { APP_NAME } from 'constants/strings';
+import { APP_NAME } from 'config/strings';
 import { MissingContentAlert } from 'components/MissingContentAlert';
 import { PagePaper } from 'components/PagePaper';
 

@@ -8,7 +8,7 @@ import '@phork/phorkit/styles/normalize.css';
 import * as serviceWorker from './serviceWorkerRegistration';
 import 'styles/global.css';
 
-const App = React.lazy(() => import('components/App'));
+const App = React.lazy(() => import('components/App').then(({ App }) => ({ default: App })));
 
 ReactDOM.render(
   <React.Suspense

@@ -2,7 +2,7 @@ import React, { cloneElement, lazy, Suspense, useCallback, useContext } from 're
 import { ForwardProps, ModalContext } from '@phork/phorkit';
 import { ModalLoader } from 'modals/ModalLoader';
 
-const CreditsModal = lazy(() => import('modals/CreditsModal'));
+const CreditsModal = lazy(() => import('modals/CreditsModal').then(({ CreditsModal }) => ({ default: CreditsModal })));
 const MODAL_ID = 'credits';
 
 export type CreditsButtonProps<E extends React.ElementType> = Partial<React.ComponentPropsWithoutRef<E>> & {

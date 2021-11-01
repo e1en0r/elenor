@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Paper, PaperProps } from '@phork/phorkit';
-import { PAPER_TOP_OFFSET, PAPER_SIDE_OFFSET, SMALL_PAPER_TOP_OFFSET, SMALL_PAPER_SIDE_OFFSET } from 'constants/sizes';
-import { viewports } from 'constants/viewports';
+import { PAPER_TOP_OFFSET, PAPER_SIDE_OFFSET, SMALL_PAPER_TOP_OFFSET, SMALL_PAPER_SIDE_OFFSET } from 'config/sizes';
+import { viewports } from 'config/viewports';
 
 export type PagePaperProps = PaperProps & {
   autoHeight?: boolean;

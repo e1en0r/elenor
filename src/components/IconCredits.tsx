@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { IconGroup, Flex, Link, Rhythm, SvgIconProps } from '@phork/phorkit';
-import { APP_NAME } from 'constants/strings';
 import * as icons from '../icons';
 
 export type IconSource = ({ name, url }: { name?: string; url?: string }) => JSX.Element;
@@ -15,20 +14,18 @@ export type IconCredit = {
 
 /* prettier-ignore */
 const iconSources: {
-  internal: IconSource;
   flatIcon: IconSource;
   freeIcons: IconSource;
   other: IconSource;
   theNounProject: IconSource;
 } = {
-  internal: () => <div>Icon made by {APP_NAME}</div>,
   flatIcon: ({ name, url }) => <div>Icon made by <a href={url} title={name}>{name}</a> from <a href="https://www.flaticon.com/" title="Flaticon">flaticon.com</a></div>,
   freeIcons: ({ name, url }) =>   <div>Icon made by <a href={url} title={name}>{name}</a> on <a href="https://freeicons.io" title="freeicons.io">freeicons.io</a></div>,
   other: ({ name, url }) => <div>Icon made by <a href={url} title={name}>{name}</a></div>,
   theNounProject: ({ name, url }) => <div>Icon made by <a href={url} title={name}>{name}</a> from <a href="https://thenounproject.com/" title="the Noun Project">the Noun Project</a></div>
 }
 
-const iconCredits: IconCredit[] = [
+export const iconCredits: IconCredit[] = [
   {
     id: 'email',
     icon: icons.EmailIcon,

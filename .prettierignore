@@ -1,5 +1,5 @@
 *.json
-constants/
+config/
 scripts/
 src/serviceWorkerRegistration.js
 src/service-worker.js

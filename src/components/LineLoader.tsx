@@ -1,5 +1,5 @@
 import { StyledLineLoader, StyledLineLoaderProps, useThemeId } from '@phork/phorkit';
-import { themes } from 'constants/themes';
+import { themes } from 'config/themes';
 
 export const LineLoader = ({
   color,

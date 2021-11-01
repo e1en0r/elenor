@@ -6,7 +6,7 @@ import { HeartIcon } from 'icons/HeartIcon';
 
 export type CreditsModalProps = Omit<ModalProps, 'children' | 'focusable' | 'size'> & { id?: string };
 
-const CreditsModal = ({ id: initId, ...props }: CreditsModalProps): JSX.Element => {
+export const CreditsModal = ({ id: initId, ...props }: CreditsModalProps): JSX.Element => {
   const id = initId || uuid();
   const contentRef = useRef<HTMLDivElement>(null);
   const version = process.env.__VERSION__;
@@ -34,7 +34,7 @@ const CreditsModal = ({ id: initId, ...props }: CreditsModalProps): JSX.Element 
                 </Rhythm>
                 and
                 <Rhythm ml={1}>
-                  <Link href="https://phorkit.phork.org/" rel="noopener noreferrer" target="_blank">
+                  <Link href="https://phorkit.phork.org" rel="noopener noreferrer" target="_blank">
                     Phork/it
                   </Link>
                 </Rhythm>
@@ -46,6 +46,3 @@ const CreditsModal = ({ id: initId, ...props }: CreditsModalProps): JSX.Element 
     </Modal>
   );
 };
-
-// default exports are required for react suspense
-export default CreditsModal;

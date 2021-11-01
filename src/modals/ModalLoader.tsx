@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { LineLoader, Modal, ModalBody, ModalProps } from '@phork/phorkit';
+import { Modal, ModalBody, ModalProps } from '@phork/phorkit';
+import { LineLoader } from 'components/LineLoader';
 
 const StyledModalBody = styled(ModalBody)`
   height: 200px;

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../src",
+    "rootDir": "../",
+    "paths": {
+      "assets": ["../src/assets"],
+      "components": ["../src/components"],
+      "config": ["../src/config"],
+      "hooks": ["../src/hooks"],
+      "icons": ["../src/icons"],
+      "modals": ["../src/modals"],
+      "pages": ["../src/pages"],
+      "postcss": ["../src/postcss"],
+      "styles": ["../src/styles"],
+      "utils": ["../src/utils"],
+    },
+    "types": [
+      "jest",
+      "node",
+      "@testing-library/jest-dom"
+    ]
+  },
+  "extends": "../tsconfig.json",
+  "include": [".", "../src", "./jest.d.ts", "../__mocks__"]
+ }

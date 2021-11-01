@@ -6,7 +6,7 @@
   "importOrder": [
     "^@phork/(.*)$",
     "^types(.*)$",
-    "^constants(.*)$",
+    "^config(.*)$",
     "^components(.*)$",
     "^modals(.*)$",
     "^pages(.*)$",

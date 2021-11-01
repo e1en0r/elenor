@@ -119,7 +119,7 @@ const configuration = {
     alias: {
       assets$: assets,
       components$: path.join(src, 'components'),
-      constants$: path.join(src, 'constants'),
+      config$: path.join(src, 'config'),
       hooks$: path.join(src, 'hooks'),
       icons$: path.join(src, 'icons'),
       modals$: path.join(src, 'modals'),
@@ -178,18 +178,18 @@ const configuration = {
           <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <meta name="Description" content="${APP_NAME} - A showcase for custom mechanical keyboards" />
+            <meta name="Description" content="Elenor says 'Hello world'" />
             <base href="${publicPath}"/>
             <link rel="manifest" href="${publicPath}asset-manifest.json" />
-            <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
-            <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
-            <link rel="manifest" href="/static/favicon/site.webmanifest">
-            <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#393945">
-            <link rel="shortcut icon" href="/static/favicon/favicon.ico">
-            <meta name="msapplication-TileColor" content="#393945">
-            <meta name="msapplication-config" content="/static/favicon/browserconfig.xml">
-            <meta name="theme-color" content="#393945">
+            <link rel="apple-touch-icon" sizes="180x180" href="${publicPath}static/favicon/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="${publicPath}static/favicon/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="${publicPath}static/favicon/favicon-16x16.png">
+            <link rel="manifest" href="${publicPath}static/favicon/site.webmanifest">
+            <link rel="mask-icon" href="${publicPath}static/favicon/safari-pinned-tab.svg" color="#f41150">
+            <link rel="shortcut icon" href="${publicPath}static/favicon/favicon.ico">
+            <meta name="msapplication-TileColor" content="#f41150">
+            <meta name="msapplication-config" content="${publicPath}static/favicon/browserconfig.xml">
+            <meta name="theme-color" content="#ffffff">
             <title>${APP_NAME}</title>
           </head>
           <body>

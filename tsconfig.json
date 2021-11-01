@@ -23,7 +23,7 @@
     "paths": {
       "assets": ["src/assets"],
       "components": ["src/components"],
-      "constants": ["src/constants"],
+      "config": ["src/config"],
       "hooks": ["src/hooks"],
       "icons": ["src/icons"],
       "modals": ["src/modals"],
