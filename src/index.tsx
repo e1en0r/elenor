@@ -9,15 +9,17 @@ import * as serviceWorker from './serviceWorkerRegistration';
 import 'styles/global.css';
 
 const App = React.lazy(() => import('components/App').then(({ App }) => ({ default: App })));
-const themeId = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+const urlParams = new URLSearchParams(window.location.search);
+const isDark = urlParams.get('theme') === 'dark' || (!urlParams.has('theme') && window.matchMedia?.('(prefers-color-scheme: dark)').matches);
 
 ReactDOM.render(
   <React.Suspense
     fallback={
       <div
         style={{
-          background: themeId === 'dark' ? '#17171D' : '#FAFAFA',
-          color: themeId === 'dark' ? '#474954' : '#C6C6CC',
+          background: isDark ? '#17171D' : '#FAFAFA',
+          color: isDark ? '#474954' : '#C6C6CC',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -36,7 +38,7 @@ ReactDOM.render(
       </div>
     }
   >
-    <App themeId={themeId} />
+    <App themeId={isDark ? 'dark' : 'light'} />
   </React.Suspense>,
   document.getElementById('root'),
 );
