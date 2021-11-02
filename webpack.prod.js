@@ -11,6 +11,10 @@ const common = require('./webpack.common.js');
 const useProfiling = !!process.env.PROFILING && process.env.PROFILING !== 'false';
 const srcPath = path.resolve(__dirname, 'src');
 
+if (!process.env.PUBLIC_URL) {
+  throw new Error(`❌ Missing .env file. See .env.sample for an example.`);
+}
+
 module.exports = merge(common, {
   mode: 'production',
   optimization: {

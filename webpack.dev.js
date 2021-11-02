@@ -1,6 +1,7 @@
 // to partially mock a production environment this can be called with `--node-env production`
 const mode = process.env.NODE_ENV || 'development';
-require('dotenv').config({ path: `./.env${mode === 'development' ? '.development' : ''}` });
+const env = `.env${mode === 'development' ? '.development' : ''}`;
+require('dotenv').config({ path: `./${env}` });
 
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
@@ -12,6 +13,10 @@ const PACKAGE = require('./package.json');
 
 const { webpackConfig } = PACKAGE;
 const { publicPath } = webpackConfig;
+
+if (!process.env.PUBLIC_URL) {
+  throw new Error(`❌ Missing ${env} file. See .env.sample for an example.`);
+}
 
 module.exports = merge(common, {
   mode,

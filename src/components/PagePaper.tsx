@@ -20,6 +20,10 @@ export const PagePaper = styled(Paper, {
   @media (max-width: ${viewports.small.max}px) {
     padding: ${SMALL_PAPER_TOP_OFFSET}px ${SMALL_PAPER_SIDE_OFFSET}px;
   }
+
+  @media (orientation: landscape) {
+    padding: ${SMALL_PAPER_TOP_OFFSET}px ${SMALL_PAPER_SIDE_OFFSET}px;
+  }
 `;
 
 PagePaper.displayName = 'PagePaper';
