@@ -6,9 +6,10 @@ export type MissingContentAlertProps = Omit<MainContentAlertProps, 'icon'>;
 export function MissingContentAlert({
   color = 'warning',
   message,
+  raised,
   ...props
 }: MissingContentAlertProps): React.ReactElement {
-  return <MainContentAlert color={color} icon={NotFoundIcon} message={message} {...props} />;
+  return <MainContentAlert color={color} icon={NotFoundIcon} message={message} raised={raised} {...props} />;
 }
 
 MissingContentAlert.displayName = 'MissingContentAlert';

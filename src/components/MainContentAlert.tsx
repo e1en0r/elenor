@@ -1,5 +1,16 @@
 import styled from '@emotion/styled';
-import { Paper, PaperProps, Rhythm, StateColor, SvgIconProps, Typography, useGetWidth } from '@phork/phorkit';
+import {
+  Paper,
+  PaperProps,
+  Rhythm,
+  StateColor,
+  SvgIconProps,
+  Theme,
+  Typography,
+  useGetWidth,
+  useThemeId,
+} from '@phork/phorkit';
+import { themes } from 'config/themes';
 
 const getColorKey = (color: MainContentAlertProps['color']): PaperProps['color'] => {
   if (color === 'primary') return 'accent-primary';
@@ -8,20 +19,24 @@ const getColorKey = (color: MainContentAlertProps['color']): PaperProps['color']
   return 'secondary';
 };
 
-const AlertContainer = styled(Paper)<{ size: number }>`
+const AlertContainer = styled(Paper)<{ raised?: boolean; size: number; themeId?: Theme }>`
+  ${({ raised, size, themeId = 'light' }) => `
   align-items: center;
   border-radius: 100%;
   display: flex;
   flex-direction: column;
-  height: ${({ size }) => `${size}px;`}
+  height: ${size}px;
   justify-content: center;
-  width: ${({ size }) => `${size}px;`}
+  width: ${size}px;
+  ${raised ? `box-shadow: ${themes[themeId]['box-shadow-40']};` : ''}
+`}
 `;
 
 export type MainContentAlertProps = Omit<PaperProps, 'children' | 'color'> & {
   color?: Omit<StateColor, 'success'>;
   icon: React.FC<SvgIconProps>;
   message: string;
+  raised?: boolean;
   size?: number;
 };
 
@@ -32,15 +47,17 @@ export const MainContentAlert = ({
   color,
   icon: Icon,
   message,
+  raised,
   size: initSize = DEFAULT_SIZE,
   ...props
 }: MainContentAlertProps): React.ReactElement => {
+  const themeId = useThemeId();
   const width = useGetWidth();
   const size = width ? Math.max(MINIMIM_SIZE, Math.min(width - 40, initSize)) : initSize;
   const iconSize = Math.round(size / 3);
 
   return (
-    <AlertContainer color={getColorKey(color)} size={size} {...props}>
+    <AlertContainer color={getColorKey(color)} raised={raised} size={size} themeId={themeId} {...props}>
       <Rhythm mb={6}>
         <Icon size={iconSize} style={{ flex: 'none' }} />
       </Rhythm>
