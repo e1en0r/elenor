@@ -19,7 +19,9 @@ const getColorKey = (color: MainContentAlertProps['color']): PaperProps['color']
   return 'secondary';
 };
 
-const AlertContainer = styled(Paper)<{ raised?: boolean; size: number; themeId?: Theme }>`
+const AlertContainer = styled(Paper, {
+  shouldForwardProp: (prop: string) => !['raised', 'size'].includes(prop),
+})<{ raised?: boolean; size: number; themeId?: Theme }>`
   ${({ raised, size, themeId = 'light' }) => `
   align-items: center;
   border-radius: 100%;
