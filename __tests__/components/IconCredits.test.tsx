@@ -8,7 +8,7 @@ describe('<IconCredits />', () => {
     expect(container.querySelectorAll('svg').length).toBe(iconCredits.length);
   });
 
-  it('should render an the icon source', () => {
+  it('should render the icon source', () => {
     const { getAllByText } = render(<IconCredits />);
 
     expect(getAllByText(/Freepik/)).toBeTruthy();
