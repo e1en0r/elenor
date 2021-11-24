@@ -31,7 +31,7 @@ const StyledLink = styled.a<{ themeId: Theme }>`
   display: block;
   position: relative;
 
-  --focus-ring-color: ${themes[themeId]['color-accent-primary']};
+  --focus-ring-color: ${themes[themeId]['color-accent']};
   --focus-ring-size: 16px;
 
   &:active {

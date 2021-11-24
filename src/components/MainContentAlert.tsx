@@ -13,7 +13,7 @@ import {
 import { themes } from 'config/themes';
 
 const getColorKey = (color: MainContentAlertProps['color']): PaperProps['color'] => {
-  if (color === 'primary') return 'accent-primary';
+  if (color === 'primary') return 'accent';
   if (color === 'warning') return 'warning';
   if (color === 'danger') return 'danger';
   return 'secondary';
