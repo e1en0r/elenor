@@ -42,7 +42,7 @@ export type MainContentAlertProps = Omit<PaperProps, 'children' | 'color'> & {
   size?: number;
 };
 
-const MINIMIM_SIZE = 200;
+const MINIMUM_SIZE = 200;
 const DEFAULT_SIZE = 300;
 
 export const MainContentAlert = ({
@@ -55,7 +55,7 @@ export const MainContentAlert = ({
 }: MainContentAlertProps): React.ReactElement => {
   const themeId = useThemeId();
   const width = useGetWidth();
-  const size = width ? Math.max(MINIMIM_SIZE, Math.min(width - 40, initSize)) : initSize;
+  const size = width ? Math.max(MINIMUM_SIZE, Math.min(width - 40, initSize)) : initSize;
   const iconSize = Math.round(size / 3);
 
   return (
