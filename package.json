@@ -114,8 +114,7 @@
     "workbox-precaching": "^6.0.2",
     "workbox-routing": "^6.0.2",
     "workbox-strategies": "^6.0.2",
-    "workbox-webpack-plugin": "^6.0.2",
-    "yup": "^0.32.8"
+    "workbox-webpack-plugin": "^6.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
