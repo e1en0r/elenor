@@ -27,13 +27,6 @@ const iconSources: {
 
 export const iconCredits: IconCredit[] = [
   {
-    id: 'email',
-    icon: icons.EmailIcon,
-    name: 'Alexander Yordan Mulia',
-    url: 'https://thenounproject.com/xander.yordan/',
-    src: iconSources.theNounProject,
-  },
-  {
     id: 'github',
     icon: icons.GithubIcon,
     name: 'Guillaume Beaulieu',
@@ -52,13 +45,6 @@ export const iconCredits: IconCredit[] = [
     icon: icons.InstagramIcon,
     name: 'Mas Dhimas',
     url: 'https://thenounproject.com/mas_dhimas/',
-    src: iconSources.theNounProject,
-  },
-  {
-    id: 'linkedIn',
-    icon: icons.LinkedInIcon,
-    name: 'Rivda',
-    url: 'https://thenounproject.com/rivdanou/',
     src: iconSources.theNounProject,
   },
   {

@@ -41,18 +41,4 @@ describe('<Home />', () => {
     expect(getByTitle('Twitter')).toBeTruthy();
     expect(getByTitle('Twitter').closest('a')).toHaveAttribute('href', 'https://twitter.com/e1en0r');
   });
-
-  it('should render the LinkedIn link', () => {
-    const { getByTitle } = render(<Home />);
-
-    expect(getByTitle('LinkedIn')).toBeTruthy();
-    expect(getByTitle('LinkedIn').closest('a')).toHaveAttribute('href', 'https://www.linkedin.com/in/elenor/');
-  });
-
-  it('should render the Email link', () => {
-    const { getByTitle } = render(<Home />);
-
-    expect(getByTitle('Email')).toBeTruthy();
-    expect(getByTitle('Email').closest('a')).toHaveAttribute('href', 'http://scr.im/elenor');
-  });
 });
