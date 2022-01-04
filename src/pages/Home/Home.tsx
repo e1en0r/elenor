@@ -16,20 +16,24 @@ type Size = 'small' | 'medium' | 'large';
 type SizeProps = {
   iconSize: ColoredIconButtonProps['size'];
   maxSize: number;
+  iconMargin: number;
 };
 
 const sizes: Record<Size, SizeProps> = {
   small: {
     maxSize: 210,
     iconSize: 'xlarge',
+    iconMargin: 2,
   },
   medium: {
-    maxSize: 228,
+    maxSize: 250,
     iconSize: '2xlarge',
+    iconMargin: 3,
   },
   large: {
     maxSize: 264,
-    iconSize: '4xlarge',
+    iconSize: '3xlarge',
+    iconMargin: 3,
   },
 };
 
@@ -57,7 +61,7 @@ export const Home = memo(function Home() {
   const isTooBigForLandscape = height !== undefined && height > 730;
 
   const isLandscape = !isTooSmallForLandscape && !isTooBigForLandscape && showLandscapeLayout(width, height);
-  const { maxSize, iconSize } = isLandscape ? getSizesByHeight(height) : getSizesByWidth(width);
+  const { maxSize, iconSize, iconMargin } = isLandscape ? getSizesByHeight(height) : getSizesByWidth(width);
 
   const buttonProps: Pick<ColoredIconButtonProps, 'shape' | 'size' | 'weight'> = {
     shape: 'circle',
@@ -82,8 +86,8 @@ export const Home = memo(function Home() {
               style={{ [isLandscape ? 'maxHeight' : 'maxWidth']: maxSize }}
             >
               <Rhythm
-                mb={isLandscape ? 0 : 10}
-                ml={isLandscape ? 10 : 0}
+                mb={isLandscape ? 0 : 6}
+                ml={isLandscape ? 6 : 0}
                 pb={isLandscape ? 0 : 4}
                 pl={isLandscape ? 4 : 0}
               >
@@ -101,10 +105,10 @@ export const Home = memo(function Home() {
                 </ColoredIconButton>
               </Rhythm>
 
-              <Rhythm m={-2}>
+              <Rhythm m={-iconMargin}>
                 <Flex wrap alignItems="center" direction={isLandscape ? 'column' : 'row'} reverse={isLandscape}>
                   <Flex alignItems="center" direction={isLandscape ? 'column' : 'row'} reverse={isLandscape}>
-                    <Rhythm m={2}>
+                    <Rhythm m={iconMargin}>
                       <ColoredIconButton<'a'>
                         as="a"
                         colorId="P10"
@@ -129,7 +133,7 @@ export const Home = memo(function Home() {
                     </Rhythm>
                   </Flex>
                   <Flex alignItems="center" direction={isLandscape ? 'column' : 'row'} reverse={isLandscape}>
-                    <Rhythm m={2}>
+                    <Rhythm m={iconMargin}>
                       <ColoredIconButton<'a'>
                         as="a"
                         colorId="P30"
