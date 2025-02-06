@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import { Suspense } from 'react';
-import { Route, Switch } from 'react-router';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import { ErrorBoundary, Paper, PaperProps, SizeProvider } from '@phork/phorkit';
 import { LineLoader } from 'components/LineLoader';
 import FourOhFour from 'pages/FourOhFour';
-import Home from 'pages/Home';
+import Links from 'pages/Links';
+import Resume from 'pages/Resume';
 
 const ViewportPaper = styled(Paper)`
   width: 100vw;
@@ -18,23 +18,28 @@ export type AppContentProps = Omit<PaperProps, 'children' | 'color' | 'scrollabl
 
 export const AppContent = (props: AppContentProps): React.ReactElement => {
   return (
-    <Router>
-      <SizeProvider observe decimalPlaces={0}>
-        {ref => (
-          <ViewportPaper scrollable color="primary" ref={ref} {...props}>
-            <ErrorBoundary variant="page">
-              <Suspense fallback={<LineLoader fixed position="top" />}>
-                <Switch>
-                  <Route exact component={Home} path="/" />
-                  <Route>
-                    <FourOhFour />
-                  </Route>
-                </Switch>
-              </Suspense>
-            </ErrorBoundary>
-          </ViewportPaper>
-        )}
-      </SizeProvider>
-    </Router>
+    <SizeProvider observe decimalPlaces={0}>
+      {ref => (
+        <ViewportPaper scrollable color="primary" ref={ref} {...props}>
+          <ErrorBoundary variant="page">
+            <Routes>
+              <Route
+                element={
+                  <Suspense fallback={<LineLoader position="top" />}>
+                    <Outlet />
+                  </Suspense>
+                }
+                path="/"
+              >
+                <Route index element={<Resume />} />
+                <Route element={<Resume />} path="resume" />
+                <Route element={<Links />} path="links" />
+                <Route element={<FourOhFour />} path="*" />
+              </Route>
+            </Routes>
+          </ErrorBoundary>
+        </ViewportPaper>
+      )}
+    </SizeProvider>
   );
 };

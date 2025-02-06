@@ -41,25 +41,11 @@ export const iconCredits: IconCredit[] = [
     src: iconSources.flatIcon,
   },
   {
-    id: 'instagram',
-    icon: icons.InstagramIcon,
-    name: 'Mas Dhimas',
-    url: 'https://thenounproject.com/mas_dhimas/',
-    src: iconSources.theNounProject,
-  },
-  {
     id: 'notFound',
     icon: icons.NotFoundIcon,
     name: 'Freepik',
     url: 'https://www.flaticon.com/authors/freepik',
     src: iconSources.flatIcon,
-  },
-  {
-    id: 'twitter',
-    icon: icons.TwitterIcon,
-    name: 'Muhammad Haq',
-    url: 'https://freeicons.io/profile/823',
-    src: iconSources.freeIcons,
   },
 ];
 

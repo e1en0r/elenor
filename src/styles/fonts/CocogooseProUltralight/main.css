@@ -1,0 +1,10 @@
+﻿/* cocogoose pro ultralight */
+@font-face {
+  font-family: 'CocogooseProUltralight';
+  font-display: swap;
+  src: url('./Cocogoose-Pro-Ultralight.eot'); /* IE9 Compat Modes */
+  src: local('Cocogoose Pro Ultralight'), local('Cocogoose-Pro-Ultralight'),
+    url('./Cocogoose-Pro-Ultralight.eot?#iefix') format('embedded-opentype'),
+    /* Super Modern Browsers */ url('./Cocogoose-Pro-Ultralight.woff') format('woff'),
+    /* Modern Browsers */ url('./Cocogoose-Pro-Ultralight.ttf') format('truetype'); /* Safari, Android, iOS */
+}

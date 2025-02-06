@@ -1,5 +1,5 @@
 import { Fragment, memo } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { Flex, Rhythm, ColoredIconButton, ColoredIconButtonProps, useGetHeight, useGetWidth } from '@phork/phorkit';
 import { APP_NAME, GITHUB, INSTAGRAM, PHORKIT, TWITTER } from 'config/strings';
 import { CreditsButton } from 'components/CreditsButton';
@@ -53,7 +53,7 @@ const getSizesByWidth = (width: number | undefined): SizeProps => {
   return sizes.large;
 };
 
-export const Home = memo(function Home() {
+export const Links = memo(function Links() {
   const height = useGetHeight();
   const width = useGetWidth();
 

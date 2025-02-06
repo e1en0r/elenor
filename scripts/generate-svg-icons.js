@@ -51,4 +51,11 @@ const generateIcons = ({ src, dst, type, level }) => {
     type: 'bundled',
     level: 1,
   });
+
+  generateIcons({
+    src: './src/assets/icons/logos',
+    dst: './src/icons/logos',
+    type: 'bundled',
+    level: 2,
+  });
 })()

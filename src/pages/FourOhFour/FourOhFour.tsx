@@ -1,6 +1,6 @@
 import { cx } from '@emotion/css';
 import styled from '@emotion/styled';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { Rhythm, Theme, useThemeId } from '@phork/phorkit';
 import focusRing from '@phork/phorkit/styles/modules/common/FocusRing.module.css';
 import { APP_NAME } from 'config/strings';
