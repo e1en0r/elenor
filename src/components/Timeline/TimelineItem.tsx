@@ -14,6 +14,7 @@ import {
   Typography,
   useThemeId,
 } from '@phork/phorkit';
+import { TIMELINE_POINTER_SIZE } from 'config/sizes';
 
 export const LogoContainer = styled.div<{ backgroundColor: string; color: string }>`
   background: ${({ backgroundColor }) => backgroundColor};
@@ -93,7 +94,7 @@ export const TimelineItem = ({
         last={last}
         position={position}
         style={style}
-        triangleSize={8}
+        triangleSize={TIMELINE_POINTER_SIZE}
         width={width}
       >
         <Paper color="tertiary">

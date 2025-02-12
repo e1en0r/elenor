@@ -1,57 +1,37 @@
 import styled from '@emotion/styled';
 import { memo, useCallback, useState } from 'react';
-import { Flex, Position, Rhythm } from '@phork/phorkit';
+import { Flex, StyledIconButton, Rhythm, themes, useThemeId } from '@phork/phorkit';
+import { TIMELINE_GUTTER_WIDTH, TIMELINE_POINTER_SIZE, TIMELINE_STRADDLED_LEFT_WIDTH } from 'config/sizes';
 import { viewports } from 'config/viewports';
 import { Headline } from 'components/Headline';
-import { ResumeIconButton } from 'components/ResumeIconButton';
-import { Skills } from 'components/Skills';
+import { Skills } from 'components/Skills/Skills';
 import { Timeline } from 'components/Timeline';
 import { ExpandIcon, CollapseIcon } from 'icons/index';
 
-const MINIMUM_TIMELINE_GUTTER = 50;
-const MAXIMUM_TIMELINE_WIDTH = 800;
+const MINIMUM_TIMELINE_GUTTER = TIMELINE_GUTTER_WIDTH * 2;
+const MAXIMUM_TIMELINE_WIDTH = 788;
 const MINIMUM_TIMELINE_WIDTH = 350;
 
-const MAXIMUM_SKILLS_WIDTH = 800;
-const MINIMUM_SKILLS_WIDTH = 300;
-
-const MODULE_SPACE_SMALL = 20;
-const MODULE_SPACE_LARGE = 40;
-
-const getTimelineWidth = (width?: number) => {
+const getWidth = (width?: number) => {
   if (width) {
     return Math.max(MINIMUM_TIMELINE_WIDTH, Math.min(MAXIMUM_TIMELINE_WIDTH, width - MINIMUM_TIMELINE_GUTTER * 2));
   }
   return undefined;
 };
 
-const ContainerFlex = styled(Flex)`
-  margin-right: -${MODULE_SPACE_LARGE}px;
-  margin-left: -${MODULE_SPACE_LARGE}px;
-
-  @media (max-width: ${viewports.small.max}px) {
-    margin-left: -${MODULE_SPACE_SMALL}px;
-    margin-right: -${MODULE_SPACE_SMALL}px;
-  }
-`;
-
-const Section = styled(Flex)`
-  margin-left: ${MODULE_SPACE_LARGE}px;
-  margin-right: ${MODULE_SPACE_LARGE}px;
-  margin-bottom: 80px;
-
-  @media (max-width: ${viewports.small.max}px) {
-    margin-left: ${MODULE_SPACE_SMALL}px;
-    margin-right: ${MODULE_SPACE_SMALL}px;
-  }
-`;
-
-const SkillsSection = styled(Section)`
-  min-width: ${MINIMUM_SKILLS_WIDTH}px;
-`;
-
-const TimelineSection = styled(Section)`
+const MinWidthFlex = styled(Flex)`
   min-width: ${MINIMUM_TIMELINE_WIDTH}px;
+`;
+
+const FitContentFlex = styled(Flex)`
+  width: fit-content;
+`;
+
+const IndentedSkills = styled(Skills, {
+  shouldForwardProp: prop => prop !== 'isStraddledTimeline',
+})<{ isStraddledTimeline: boolean }>`
+  padding-left: ${({ isStraddledTimeline }) =>
+    isStraddledTimeline ? TIMELINE_STRADDLED_LEFT_WIDTH + TIMELINE_POINTER_SIZE * 2 : TIMELINE_GUTTER_WIDTH}px;
 `;
 
 export type ResumeContentProps = {
@@ -60,6 +40,8 @@ export type ResumeContentProps = {
 };
 
 export const ResumeContent = memo(function ResumeContent({ alignRight, width }: ResumeContentProps) {
+  const themeId = useThemeId();
+
   const [expandExperience, setExpandExperience] = useState(false);
   const ExperienceIcon = expandExperience ? CollapseIcon : ExpandIcon;
 
@@ -68,34 +50,39 @@ export const ResumeContent = memo(function ResumeContent({ alignRight, width }: 
     [],
   );
 
-  return (
-    <ContainerFlex wrap direction="row" justifyContent={alignRight ? 'flex-end' : 'center'}>
-      <SkillsSection alignItems={alignRight ? 'flex-end' : 'center'} direction="column">
-        <Rhythm mb={10}>
-          <Headline>Skill Levels</Headline>
-        </Rhythm>
-        <Skills />
-      </SkillsSection>
+  const isStraddledTimeline = !!alignRight;
 
-      <TimelineSection alignItems={alignRight ? 'flex-end' : 'center'} direction="column">
+  return (
+    <MinWidthFlex wrap alignItems="flex-start" direction="row" justifyContent={alignRight ? 'space-between' : 'center'}>
+      <Flex direction="column">Hello world</Flex>
+      <FitContentFlex alignItems={alignRight ? 'flex-end' : 'center'} direction="column">
         <Rhythm mb={10}>
-          <Headline>
-            <Rhythm ml={-4}>
-              <Position location="left-center" variant="outside">
-                <ResumeIconButton
-                  as="button"
-                  onClick={handleToggleExperience}
-                  size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
-                >
-                  <ExperienceIcon size={width && width < viewports.small.max ? 24 : 32} />
-                </ResumeIconButton>
-              </Position>
+          <Flex alignItems="center" direction="row">
+            <Rhythm mb={1} mr={2}>
+              <StyledIconButton
+                activePrimaryColor={themes[themeId]['primary-palette-quiet-color']}
+                as="button"
+                hoveredPrimaryColor={themes[themeId]['primary-palette-quiet-color']}
+                inverseColor={themes[themeId]['primary-palette-background-color']}
+                onClick={handleToggleExperience}
+                primaryColor={themes[themeId]['primary-palette-text-color']}
+                shape="circle"
+                size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
+                weight="solid"
+              >
+                <ExperienceIcon size={width && width < viewports.small.max ? 24 : 32} />
+              </StyledIconButton>{' '}
             </Rhythm>
-            {width && width < viewports.small.max ? 'Experience' : 'Work Experience'}
-          </Headline>
+            <Headline>{width && width < viewports.small.max ? 'Experience' : 'Work Experience'}</Headline>{' '}
+          </Flex>
         </Rhythm>
-        <Timeline expanded={expandExperience} isStraddled={alignRight} width={getTimelineWidth(width)} />
-      </TimelineSection>
-    </ContainerFlex>
+        <Timeline expanded={expandExperience} isStraddled={isStraddledTimeline} width={getWidth(width)} />
+
+        <Rhythm mb={10} mt={15}>
+          <Headline>Skills</Headline>
+        </Rhythm>
+        <IndentedSkills isStraddledTimeline={isStraddledTimeline} />
+      </FitContentFlex>
+    </MinWidthFlex>
   );
 });

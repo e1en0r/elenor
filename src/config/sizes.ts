@@ -21,3 +21,7 @@ export const HEADER_RIGHT_OFFSET = 24;
 export const SMALL_HEADER_TOP_OFFSET = 16;
 export const SMALL_HEADER_LEFT_OFFSET = 24;
 export const SMALL_HEADER_RIGHT_OFFSET = 24;
+
+export const TIMELINE_STRADDLED_LEFT_WIDTH = 150;
+export const TIMELINE_POINTER_SIZE = 8;
+export const TIMELINE_GUTTER_WIDTH = 24;

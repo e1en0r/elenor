@@ -17,9 +17,11 @@ export const Skills = (props: SkillsProps): JSX.Element => {
       <SkillsItem competency={5} skill="TypeScript" />
       <SkillsItem competency={5} skill="JavaScript" />
       <SkillsItem competency={5} skill="React" />
-      <SkillsItem competency={4} skill="Redux" />
+      <SkillsItem competency={5} skill="React Hooks" />
       <SkillsItem competency={5} skill="HTML" />
       <SkillsItem competency={5} skill="CSS" />
+      <SkillsItem competency={5} skill="GraphQL" />
+      <SkillsItem competency={4} skill="Redux" />
     </SkillsContainer>
   );
 };

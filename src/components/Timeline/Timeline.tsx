@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { ThemeProps, Timeline as ColumnTimeline, StraddledTimeline, useThemeId } from '@phork/phorkit';
+import { ThemeProps, Timeline as InlineTimeline, StraddledTimeline, useThemeId } from '@phork/phorkit';
+import { TIMELINE_STRADDLED_LEFT_WIDTH } from 'config/sizes';
 import { TimelineContent } from 'components/Timeline/TimelineContent';
 
 type TimelineProps = Pick<ThemeProps, 'themeId'> & {
@@ -13,14 +14,14 @@ const StyledStraddledTimeline = styled(StraddledTimeline)`
   letter-spacing: 1.2px;
 `;
 
-const StyledColumnedTimeline = styled(ColumnTimeline)`
+const StyledInlineTimeline = styled(InlineTimeline)`
   font-size: 14px;
   letter-spacing: 1.2px;
 `;
 
 export const Timeline = ({ expanded, isStraddled, themeId: initThemeId, width = 800 }: TimelineProps): JSX.Element => {
   const themeId = useThemeId(initThemeId);
-  const leftWidth = isStraddled ? 150 : 0;
+  const leftWidth = isStraddled ? TIMELINE_STRADDLED_LEFT_WIDTH : 0;
   const rightWidth = width - leftWidth;
 
   const labelWidth = leftWidth || rightWidth;
@@ -41,7 +42,7 @@ export const Timeline = ({ expanded, isStraddled, themeId: initThemeId, width = 
       />
     </StyledStraddledTimeline>
   ) : (
-    <StyledColumnedTimeline spacing="cozy">
+    <StyledInlineTimeline spacing="cozy">
       <TimelineContent
         expanded={expanded}
         itemPosition={itemPosition}
@@ -50,7 +51,7 @@ export const Timeline = ({ expanded, isStraddled, themeId: initThemeId, width = 
         labelWidth={labelWidth}
         themeId={themeId}
       />
-    </StyledColumnedTimeline>
+    </StyledInlineTimeline>
   );
 };
 

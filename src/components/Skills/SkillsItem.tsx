@@ -13,14 +13,14 @@ const SkillsItemContainer = styled.div`
 export const SkillsItem = ({ skill, competency }: SkillsItemProps): JSX.Element => {
   return (
     <SkillsItemContainer>
-      <Rhythm mr={4}>
+      <Rhythm mr={3}>
         <Typography<'div'> as="div" size="3xlarge">
           {skill}
         </Typography>
       </Rhythm>
       <Progress
         aria-label={`${skill}: ${competency}`}
-        color="primary"
+        color="neutral"
         orientation="horizontal"
         percent={competency * 20}
         size="large"
