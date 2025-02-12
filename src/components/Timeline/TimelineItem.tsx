@@ -41,8 +41,8 @@ export const Ribbon = styled.div<{ backgroundColor: string }>`
   text-align: center;
   text-decoration: none;
   top: 34px;
-  transform: rotate(45deg) translate(5%, -185%);
-  width: 100px;
+  transform: rotate(45deg) translate(18%, -164%);
+  width: 120px;
   z-index: 100;
 `;
 
@@ -115,6 +115,12 @@ export const TimelineItem = ({
                   </Rhythm>
                 )}
               </Flex>
+
+              {contract && (
+                <Ribbon backgroundColor={themes[themeId]['primary-palette-quietest-color']}>
+                  <Typography variants="xsmall-caps">Contract</Typography>
+                </Ribbon>
+              )}
             </Rhythm>
           </GridContainer>
         </Paper>

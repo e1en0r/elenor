@@ -1,16 +1,6 @@
 import styled from '@emotion/styled';
 import { useContext } from 'react';
-import {
-  ButtonGroup,
-  ColoredIconButton,
-  Flex,
-  Position,
-  Rhythm,
-  SvgIconProps,
-  Theme,
-  ThemeContext,
-  useThemeId,
-} from '@phork/phorkit';
+import { Flex, Position, Rhythm, SvgIconProps, Theme, ThemeContext, useThemeId } from '@phork/phorkit';
 import {
   HEADER_LEFT_OFFSET,
   HEADER_RIGHT_OFFSET,
@@ -23,11 +13,11 @@ import {
   SMALL_HEADER_TOP_OFFSET,
 } from 'config/sizes';
 import { viewports } from 'config/viewports';
-import { CreditsButton } from 'components/CreditsButton';
 import { Byline, Headline } from 'components/Headline';
-import { HeartIcon, MoonIcon, SunIcon } from 'icons/index';
+import { ResumeIconButton } from 'components/ResumeIconButton';
+import { MoonIcon, SunIcon } from 'icons/index';
 
-export type HeaderProps = {
+export type ResumeHeaderProps = {
   width?: number;
 };
 
@@ -56,12 +46,10 @@ const Container = styled.div<{ themeId: Theme }>`
   }
 `;
 
-export const Header = ({ width }: HeaderProps): JSX.Element => {
+export const ResumeHeader = ({ width }: ResumeHeaderProps): JSX.Element => {
   const themeId = useThemeId();
   const ThemeIcon: React.FC<SvgIconProps> = themeId === 'dark' ? SunIcon : MoonIcon;
   const toggleThemeLabel = themeId === 'dark' ? 'Use light theme' : 'Use dark theme';
-  const iconColor = themeId === 'dark' ? 'P35' : 'P10';
-  const isSmall = width && width < viewports.small.max ? true : false;
 
   const { toggleThemeId } = useContext(ThemeContext);
   const handleThemeClick = () => toggleThemeId();
@@ -75,20 +63,16 @@ export const Header = ({ width }: HeaderProps): JSX.Element => {
         </Rhythm>
       </Flex>
       <Position location="right-center" variant="inside">
-        <ButtonGroup spacing={isSmall ? 'cozy' : 'comfy'}>
-          <ColoredIconButton colorId={iconColor} key="theme" onClick={handleThemeClick} shape="circle" weight="inline">
-            <ThemeIcon size={20} title={toggleThemeLabel} />
-          </ColoredIconButton>
-
-          <CreditsButton<typeof ColoredIconButton> key="credits">
-            <ColoredIconButton colorId={iconColor} shape="circle" weight="inline">
-              <HeartIcon size={20} title="Credits" />
-            </ColoredIconButton>
-          </CreditsButton>
-        </ButtonGroup>
+        <ResumeIconButton
+          key="theme"
+          onClick={handleThemeClick}
+          size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
+        >
+          <ThemeIcon size={width && width < viewports.small.max ? 24 : 32} title={toggleThemeLabel} />
+        </ResumeIconButton>
       </Position>
     </Container>
   );
 };
 
-Header.displayName = 'Header';
+ResumeHeader.displayName = 'ResumeHeader';

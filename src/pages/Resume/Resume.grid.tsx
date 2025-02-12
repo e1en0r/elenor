@@ -24,7 +24,7 @@ export const Resume = memo(function ResumePage() {
               <SizeConsumer>
                 {({ width }) => (
                   <PagePaper scrollable role="main">
-                    <ResumeContent alignRight={!!width && width >= viewports.medium.min} width={width} />
+                    <ResumeContent alignRight={!!width && width >= viewports.large.min} width={width} />
                   </PagePaper>
                 )}
               </SizeConsumer>
