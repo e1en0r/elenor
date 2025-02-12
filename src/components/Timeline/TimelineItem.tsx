@@ -56,6 +56,8 @@ export type TimelineItemProps = Pick<TimelineMarkerItemProps, 'first' | 'last' |
   jobTitle: string;
   logoColor: string;
   Logo: React.FC<SvgIconProps>;
+  /** Swap the logo and the background color */
+  swapColors?: boolean;
   tags?: TagGroupItem[];
 };
 
@@ -71,6 +73,7 @@ export const TimelineItem = ({
   logoColor,
   Logo,
   position = 'right-center',
+  swapColors,
   tags,
   themeId: initThemeId,
   width,
@@ -79,8 +82,8 @@ export const TimelineItem = ({
 
   const style = {
     '--timeline-item-connector-color': themes[themeId]['primary-palette-border-color'],
-    '--timeline-item-state-color': backgroundColor,
-    '--status-bubble-triangle-color': backgroundColor,
+    '--timeline-item-state-color': swapColors ? logoColor : backgroundColor,
+    '--status-bubble-triangle-color': swapColors ? logoColor : backgroundColor,
     flex: 1,
   } as React.CSSProperties;
 
@@ -99,7 +102,10 @@ export const TimelineItem = ({
       >
         <Paper color="tertiary">
           <GridContainer>
-            <LogoContainer backgroundColor={backgroundColor} color={logoColor}>
+            <LogoContainer
+              backgroundColor={swapColors ? logoColor : backgroundColor}
+              color={swapColors ? backgroundColor : logoColor}
+            >
               <Logo width={50} />
             </LogoContainer>
             <Rhythm mx={5} py={2}>

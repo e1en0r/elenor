@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { Divider, MainPanel, PanelContainer, PermanentStackPanel, SizeConsumer, SizeProvider } from '@phork/phorkit';
 import { viewports } from 'config/viewports';
 import { PagePaper } from 'components/PagePaper';
+import { ResumeContent } from 'components/ResumeContent';
 import { ResumeHeader } from 'components/ResumeHeader';
-import { ResumeContent } from './ResumeContent';
 
 export const Resume = memo(function ResumePage() {
   return (

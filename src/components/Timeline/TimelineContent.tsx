@@ -22,6 +22,7 @@ export const TimelineContent = ({
   themeId: initThemeId,
 }: TimelineContentProps): JSX.Element => {
   const themeId = useThemeId(initThemeId);
+  const isDark = themeId === 'dark';
 
   return (
     <React.Fragment>
@@ -106,6 +107,7 @@ export const TimelineContent = ({
         tags={[
           { id: 'javascript', label: 'JavaScript' },
           { id: 'jquery', label: 'jQuery' },
+          { id: 'jquery', label: 'jQuery UI' },
           { id: 'yui', label: 'YUI' },
         ]}
         themeId={themeId}
@@ -130,6 +132,7 @@ export const TimelineContent = ({
         jobTitle="Full Stack Software Engineer"
         logoColor="#ffffff"
         position={itemPosition}
+        swapColors={isDark}
         tags={[
           { id: 'javascript', label: 'JavaScript' },
           { id: 'php', label: 'PHP 5' },
@@ -161,6 +164,7 @@ export const TimelineContent = ({
         jobTitle="Full Stack Software Engineer"
         logoColor="#ffffff"
         position={itemPosition}
+        swapColors={isDark}
         tags={[
           { id: 'javascript', label: 'JavaScript' },
           { id: 'php', label: 'PHP 5' },

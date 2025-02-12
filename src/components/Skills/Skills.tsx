@@ -1,27 +1,48 @@
-import styled from '@emotion/styled';
+import { Flex, Rhythm } from '@phork/phorkit';
 import { SkillsItem } from 'components/Skills/SkillsItem';
-
-const SkillsContainer = styled.div`
-  align-items: center;
-  display: grid;
-  gap: 16px;
-  width: 100%;
-  grid-template-columns: max-content 1fr;
-`;
 
 export type SkillsProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const Skills = (props: SkillsProps): JSX.Element => {
   return (
-    <SkillsContainer {...props}>
-      <SkillsItem competency={5} skill="TypeScript" />
-      <SkillsItem competency={5} skill="JavaScript" />
-      <SkillsItem competency={5} skill="React" />
-      <SkillsItem competency={5} skill="React Hooks" />
-      <SkillsItem competency={5} skill="HTML" />
-      <SkillsItem competency={5} skill="CSS" />
-      <SkillsItem competency={5} skill="GraphQL" />
-      <SkillsItem competency={4} skill="Redux" />
-    </SkillsContainer>
+    <Flex full direction="column" {...props}>
+      <Rhythm mb={6}>
+        <SkillsItem
+          label="Core Front-End Technologies"
+          skills={[
+            'React',
+            'Redux',
+            'JavaScript',
+            'TypeScript',
+            'HTML5',
+            'CSS3',
+            'Tailwind CSS',
+            'Emotion',
+            'Vanilla Extract',
+            'D3',
+          ]}
+        />
+        <SkillsItem
+          label="Integrations"
+          skills={['GraphQL (Apollo)', 'RESTful APIs', 'WebSockets', 'CI/CD pipelines']}
+        />
+        <SkillsItem
+          label="Build Tools"
+          skills={['Webpack', 'Rollup', 'Babel', 'PostCSS', 'ESLint', 'Prettier', 'Git', 'Github Actions']}
+        />
+        <SkillsItem
+          label="Testing & Code Quality"
+          skills={['Jest', 'Vitest', 'React Testing Library', 'Playwright', 'code reviews']}
+        />
+        <SkillsItem
+          label="Performance & Optimization"
+          skills={['Code Splitting', 'Lazy Loading', 'React Suspense', 'Memoization', 'Micro Frontends']}
+        />
+        <SkillsItem
+          label="Other Tools & Skills"
+          skills={['NodeJS', 'MySQL', 'PostgreSQL', 'AWS', 'Docker', 'A11y', 'Linux', 'UI/UX', 'LucidChart', 'Web3']}
+        />
+      </Rhythm>
+    </Flex>
   );
 };

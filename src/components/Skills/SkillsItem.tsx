@@ -1,30 +1,20 @@
-import styled from '@emotion/styled';
-import { Progress, Rhythm, Typography } from '@phork/phorkit';
+import { Flex, FlexProps, Rhythm, Typography } from '@phork/phorkit';
 
-export type SkillsItemProps = {
-  skill: string;
-  competency: 1 | 2 | 3 | 4 | 5;
+export type SkillsItemProps = Omit<FlexProps, 'column'> & {
+  label: string;
+  skills: string[];
 };
 
-const SkillsItemContainer = styled.div`
-  display: contents;
-`;
-
-export const SkillsItem = ({ skill, competency }: SkillsItemProps): JSX.Element => {
+export const SkillsItem = ({ label, skills, ...props }: SkillsItemProps): JSX.Element => {
   return (
-    <SkillsItemContainer>
-      <Rhythm mr={3}>
-        <Typography<'div'> as="div" size="3xlarge">
-          {skill}
+    <Flex direction="column" {...props}>
+      <Rhythm mb={2}>
+        <Typography<'div'> as="div" size="3xlarge" weight="bold">
+          {label}
         </Typography>
       </Rhythm>
-      <Progress
-        aria-label={`${skill}: ${competency}`}
-        color="neutral"
-        orientation="horizontal"
-        percent={competency * 20}
-        size="large"
-      />
-    </SkillsItemContainer>
+
+      <Typography size="xlarge">{skills.join(', ')}.</Typography>
+    </Flex>
   );
 };
