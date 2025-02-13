@@ -11,7 +11,7 @@ export const SMALL_PAPER_TOP_OFFSET = 48;
 export const SMALL_PAPER_SIDE_OFFSET = 24;
 
 export const XLARGE_HEADER_TOP_OFFSET = 24;
-export const XLARGE_HEADER_LEFT_OFFSET = 48;
+export const XLARGE_HEADER_LEFT_OFFSET = 80;
 export const XLARGE_HEADER_RIGHT_OFFSET = 80;
 
 export const HEADER_TOP_OFFSET = 24;

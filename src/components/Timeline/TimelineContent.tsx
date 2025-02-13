@@ -143,7 +143,7 @@ export const TimelineContent = ({
         width={itemWidth}
       >
         <TimelineItemList
-          accentColor="#000000"
+          accentColor={isDark ? '#ffffff' : '#000000'}
           items={[
             'Led development of PHP APIs for a suite of iOS/Unity 3D games, ensuring optimized performance and integration.',
             'Implemented Memcache to optimize data handling, improving application response time and reducing server load.',
@@ -175,7 +175,7 @@ export const TimelineContent = ({
         width={itemWidth}
       >
         <TimelineItemList
-          accentColor="#000000"
+          accentColor={isDark ? '#ffffff' : '#000000'}
           items={[
             'Built a high-performance site search engine from scratch using Sphinx, dramatically improving query speed.',
             'Implemented advertising takeovers across partner sites, boosting ad revenue and increasing visibility.',

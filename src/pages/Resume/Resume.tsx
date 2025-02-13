@@ -22,11 +22,13 @@ export const Resume = memo(function ResumePage() {
             </PermanentStackPanel>
             <MainPanel ref={ref}>
               <SizeConsumer>
-                {({ width }) => (
-                  <PagePaper scrollable role="main">
-                    <ResumeContent alignRight={!!width && width >= viewports.medium.min} width={width} />
-                  </PagePaper>
-                )}
+                {({ width }) =>
+                  width ? (
+                    <PagePaper scrollable role="main">
+                      <ResumeContent alignRight={!!width && width >= viewports.medium.min} width={width} />
+                    </PagePaper>
+                  ) : null
+                }
               </SizeConsumer>
             </MainPanel>
           </PanelContainer>

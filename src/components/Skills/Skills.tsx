@@ -28,7 +28,7 @@ export const Skills = (props: SkillsProps): JSX.Element => {
         />
         <SkillsItem
           label="Build Tools"
-          skills={['Webpack', 'Rollup', 'Babel', 'PostCSS', 'ESLint', 'Prettier', 'Git', 'Github Actions']}
+          skills={['Webpack', 'Rollup', 'Babel', 'PostCSS', 'ESLint', 'Prettier', 'Git', 'GitHub Actions']}
         />
         <SkillsItem
           label="Testing & Code Quality"
@@ -36,12 +36,13 @@ export const Skills = (props: SkillsProps): JSX.Element => {
         />
         <SkillsItem
           label="Performance & Optimization"
-          skills={['Code Splitting', 'Lazy Loading', 'React Suspense', 'Memoization', 'Micro Frontends']}
+          skills={['React Suspense', 'code splitting', 'lazy loading', 'memoization', 'micro frontends']}
         />
         <SkillsItem
           label="Other Tools & Skills"
-          skills={['NodeJS', 'MySQL', 'PostgreSQL', 'AWS', 'Docker', 'A11y', 'Linux', 'UI/UX', 'LucidChart', 'Web3']}
+          skills={['Node.js', 'MySQL', 'PostgreSQL', 'AWS', 'Docker', 'A11y', 'Linux', 'UI/UX', 'Lucidchart']}
         />
+        <SkillsItem label="Hobbies" skills={['Crypto', 'NFTs', 'mechanical keyboards']} />
       </Rhythm>
     </Flex>
   );
