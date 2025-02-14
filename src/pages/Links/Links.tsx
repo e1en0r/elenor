@@ -1,16 +1,15 @@
 import { Fragment, memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Flex, Rhythm, ColoredIconButton, ColoredIconButtonProps, useGetHeight, useGetWidth } from '@phork/phorkit';
-import { APP_NAME, GITHUB, INSTAGRAM, LINKEDIN, PHORKIT, TWITTER } from 'config/strings';
+import { APP_NAME, GITHUB, INSTAGRAM, LINKEDIN, PHORKIT } from 'config/strings';
 import { CreditsButton } from 'components/CreditsButton';
 import { PagePaper } from 'components/PagePaper';
 import { showLandscapeLayout } from 'utils/sizeUtils';
-import { LinkedinIcon } from 'icons';
 import { GithubIcon } from 'icons/GithubIcon';
 import { HeartIcon } from 'icons/HeartIcon';
 import { InstagramIcon } from 'icons/InstagramIcon';
+import { LinkedinIcon } from 'icons/LinkedinIcon';
 import { PhorkIcon } from 'icons/PhorkIcon';
-import { TwitterIcon } from 'icons/TwitterIcon';
 
 type Size = 'small' | 'medium' | 'large';
 

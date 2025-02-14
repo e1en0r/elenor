@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProps, useThemeId } from '@phork/phorkit';
-import { BuzznetIcon, RivianIcon, TbwaIcon, UbiquitiIcon, WevrIcon } from 'icons/logos';
+import { RivianIcon, TbwaIcon, UbiquitiIcon } from 'icons/logos';
 import { TimelineItem } from './TimelineItem';
 import { TimelineItemList } from './TimelineItemList';
 import { TimelineLabel } from './TimelineLabel';
@@ -22,7 +22,6 @@ export const TimelineContent = ({
   themeId: initThemeId,
 }: TimelineContentProps): JSX.Element => {
   const themeId = useThemeId(initThemeId);
-  const isDark = themeId === 'dark';
 
   return (
     <React.Fragment>

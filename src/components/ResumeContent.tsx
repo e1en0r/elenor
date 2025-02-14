@@ -93,11 +93,11 @@ export const ResumeContent = memo(function ResumeContent({ alignRight, width }: 
     leftColumnWidth ? leftColumnWidth / 2 : timelineWidth - (isTimelineStraddled ? TIMELINE_STRADDLED_LEFT_WIDTH : 0),
   );
 
-  const [expandExperience, setExpandExperience] = useState(false);
-  const ExperienceIcon = expandExperience ? CollapseIcon : ExpandIcon;
+  const [isExperienceExpanded, setIsExperienceExpanded] = useState(false);
+  const ExperienceIcon = isExperienceExpanded ? CollapseIcon : ExpandIcon;
 
   const handleToggleExperience = useCallback(
-    () => setExpandExperience(currentExpandExperience => !currentExpandExperience),
+    () => setIsExperienceExpanded(currentisExperienceExpanded => !currentisExperienceExpanded),
     [],
   );
 
@@ -179,6 +179,7 @@ export const ResumeContent = memo(function ResumeContent({ alignRight, width }: 
                 as="button"
                 onClick={handleToggleExperience}
                 size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
+                title={isExperienceExpanded ? 'Collapse experience details' : 'Expand experience details'}
               >
                 <ExperienceIcon size={width && width < viewports.small.max ? 24 : 32} />
               </ResumeIconButton>
@@ -186,7 +187,7 @@ export const ResumeContent = memo(function ResumeContent({ alignRight, width }: 
             <Section>{width && width < viewports.small.max ? 'Experience' : 'Work Experience'}</Section>
           </Flex>
         </Rhythm>
-        <Timeline expanded={expandExperience} isStraddled={isTimelineStraddled} width={timelineWidth} />
+        <Timeline expanded={isExperienceExpanded} isStraddled={isTimelineStraddled} width={timelineWidth} />
 
         <Rhythm mb={10} mt={15}>
           <Section>Skills</Section>
