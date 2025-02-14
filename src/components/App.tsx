@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { AccessibilityProvider, Modals, Theme, ThemeProvider } from '@phork/phorkit';
 import { AppContent } from 'components/AppContent';
 
@@ -9,13 +9,15 @@ export type AppProps = {
 export const App = ({ themeId }: AppProps): React.ReactElement => (
   <ThemeProvider themeId={themeId}>
     <AccessibilityProvider>
-      <Modals>
-        <Helmet>
-          <script async src="/static/scripts/matomo.js" type="text/javascript" />
-        </Helmet>
+      <HelmetProvider>
+        <Modals>
+          <Helmet>
+            <script async src="/static/scripts/matomo.js" type="text/javascript" />
+          </Helmet>
 
-        <AppContent />
-      </Modals>
+          <AppContent />
+        </Modals>
+      </HelmetProvider>
     </AccessibilityProvider>
   </ThemeProvider>
 );

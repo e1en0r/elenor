@@ -1,6 +1,12 @@
+export { CollapseIcon } from './CollapseIcon';
+export { ExpandIcon } from './ExpandIcon';
+export { GithubSolidIcon } from './GithubSolidIcon';
 export { GithubIcon } from './GithubIcon';
 export { HeartIcon } from './HeartIcon';
 export { InstagramIcon } from './InstagramIcon';
+export { LinkedinIcon } from './LinkedinIcon';
+export { MoonIcon } from './MoonIcon';
 export { NotFoundIcon } from './NotFoundIcon';
 export { PhorkIcon } from './PhorkIcon';
+export { SunIcon } from './SunIcon';
 export { TwitterIcon } from './TwitterIcon';

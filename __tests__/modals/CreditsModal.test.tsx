@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { CreditsModal } from 'modals/CreditsModal';
 import { render } from '../utils';
 

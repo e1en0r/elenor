@@ -1,19 +1,24 @@
-import './wdyr';
-
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import '@phork/phorkit/styles/common.css';
 import '@phork/phorkit/styles/fonts.css';
 import '@phork/phorkit/styles/normalize.css';
-import * as serviceWorker from './serviceWorkerRegistration';
 import 'styles/global.css';
+import 'styles/fonts/LuloCleanOne/main.css';
+import 'styles/fonts/LuloCleanOneBold/main.css';
 
 const App = React.lazy(() => import('components/App').then(({ App }) => ({ default: App })));
 
 const urlParams = new URLSearchParams(window.location.search);
 const isDark = urlParams.get('theme') === 'dark' || (!urlParams.has('theme') && window.matchMedia?.('(prefers-color-scheme: dark)').matches);
 
-ReactDOM.render(
+const container = document.getElementById('root');
+if (!container) throw new Error('Missing container')
+
+const root = createRoot(container);
+root.render(
+<React.StrictMode>
   <React.Suspense
     fallback={
       <div
@@ -38,9 +43,12 @@ ReactDOM.render(
       </div>
     }
   >
-    <App themeId={isDark ? 'dark' : 'light'} />
-  </React.Suspense>,
-  document.getElementById('root'),
+    <BrowserRouter future={{
+      'v7_startTransition': true,
+      'v7_relativeSplatPath': true,
+    }}>
+      <App themeId={isDark ? 'dark' : 'light'} />
+    </BrowserRouter>
+  </React.Suspense>
+</React.StrictMode>
 );
-
-serviceWorker.register();

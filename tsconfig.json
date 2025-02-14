@@ -35,6 +35,7 @@
     "removeComments": false,
     "resolveJsonModule": true,
     "rootDir": "src",
+    "skipLibCheck": true,
     "strict": true,
     "target": "ES2019",
     "typeRoots": ["node_modules/@types", "node_modules/@phork/phorkit/esm", "src/assetTypes", "src/environment"],

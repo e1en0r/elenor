@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Lulo Clean One Bold';
+  src: url('./LuloCleanOneBold.eot');
+  src: url('./LuloCleanOneBold.eot?#iefix') format('embedded-opentype'), url('./LuloCleanOneBold.woff2') format('woff2'),
+    url('./LuloCleanOneBold.woff') format('woff'), url('./LuloCleanOneBold.ttf') format('truetype'),
+    url('./LuloCleanOneBold.svg#Lulo Clean One Bold') format('svg');
+}
