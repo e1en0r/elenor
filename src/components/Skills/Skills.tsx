@@ -19,7 +19,7 @@ export const Skills = (props: SkillsProps): JSX.Element => {
             'Tailwind CSS',
             'Emotion',
             'Vanilla Extract',
-            'D3',
+            'D3.js',
           ]}
         />
         <SkillsItem
@@ -42,7 +42,7 @@ export const Skills = (props: SkillsProps): JSX.Element => {
           label="Other Tools & Skills"
           skills={['Node.js', 'MySQL', 'PostgreSQL', 'AWS', 'Docker', 'A11y', 'Linux', 'UI/UX', 'Lucidchart']}
         />
-        <SkillsItem label="Hobbies" skills={['Crypto', 'NFTs', 'mechanical keyboards']} />
+        <SkillsItem label="Hobbies" skills={['Phork/it', 'crypto', 'NFTs', 'mechanical keyboards']} />
       </Rhythm>
     </Flex>
   );

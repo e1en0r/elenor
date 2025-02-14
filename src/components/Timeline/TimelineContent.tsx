@@ -54,7 +54,6 @@ export const TimelineContent = ({
             'Designed application workflows to ensure clarity and alignment across development teams and stakeholders.',
             'Reduced technical debt and led the transition from JavaScript to TypeScript, improving development efficiency.',
             'Collaborated with back-end teams to design and optimize GraphQL API integrations, enhancing data flow efficiency.',
-            'Conducted code reviews and diagrammed workflows to uphold standards and ensure cohesive development practices.',
             'Mentored junior developers, instilling best practices and advancing team skills and productivity.',
           ]}
         />
@@ -85,7 +84,6 @@ export const TimelineContent = ({
           items={[
             'Led front-end development for multiple generations of the UniFi web app.',
             'Designed and developed reusable code libraries, fostering collaboration and accelerating development across teams.',
-            'Optimized application performance, reducing load times and memory usage for a seamless user experience.',
             'Created interactive data visualizations using D3.js, providing actionable insights into network performance.',
             'Conducted comprehensive browser testing and debugging to ensure cross-platform compatibility.',
             'Collaborated with network engineers to design and implement APIs for configuring router hardware settings.',
@@ -97,6 +95,7 @@ export const TimelineContent = ({
       </TimelineLabel>
       <TimelineItem
         contract
+        last
         Logo={TbwaIcon}
         backgroundColor="#ea1d2d"
         company="TBWA Chiat Day"
@@ -107,7 +106,7 @@ export const TimelineContent = ({
         tags={[
           { id: 'javascript', label: 'JavaScript' },
           { id: 'jquery', label: 'jQuery' },
-          { id: 'jquery', label: 'jQuery UI' },
+          { id: 'jqueryui', label: 'jQuery UI' },
           { id: 'yui', label: 'YUI' },
         ]}
         themeId={themeId}
@@ -120,68 +119,6 @@ export const TimelineContent = ({
             'Built the admin interface for the award-winning Projeqt app using PHP, HTML, CSS, jQuery, and jQuery UI to enhance user experience.',
             'Created mini-sites for major brands including Energizer, Nissan, and Pepsi.',
             'Contributed to several Facebook applications for Infiniti, demonstrating expertise in delivering high-quality web solutions across multiple industries.',
-          ]}
-        />
-      </TimelineItem>
-      <TimelineItem
-        contract
-        Logo={WevrIcon}
-        backgroundColor="#000000"
-        company="Wevr"
-        expanded={expanded}
-        jobTitle="Full Stack Software Engineer"
-        logoColor="#ffffff"
-        position={itemPosition}
-        swapColors={isDark}
-        tags={[
-          { id: 'javascript', label: 'JavaScript' },
-          { id: 'php', label: 'PHP 5' },
-          { id: 'mysql', label: 'MySQL' },
-          { id: 'rest', label: 'REST' },
-        ]}
-        themeId={themeId}
-        width={itemWidth}
-      >
-        <TimelineItemList
-          accentColor={isDark ? '#ffffff' : '#000000'}
-          items={[
-            'Led development of PHP APIs for a suite of iOS/Unity 3D games, ensuring optimized performance and integration.',
-            'Implemented Memcache to optimize data handling, improving application response time and reducing server load.',
-            'Designed scalable systems to improve game performance and ensure smooth gameplay mechanics.',
-            'Designed and developed front-end game UIs, prioritizing user engagement and consistent, intuitive interfaces.',
-          ]}
-        />
-      </TimelineItem>
-      <TimelineLabel position={labelPosition} themeId={themeId} width={labelWidth}>
-        2007 - 2009
-      </TimelineLabel>
-      <TimelineItem
-        last
-        Logo={BuzznetIcon}
-        backgroundColor="#000000"
-        company="Buzznet"
-        expanded={expanded}
-        jobTitle="Full Stack Software Engineer"
-        logoColor="#ffffff"
-        position={itemPosition}
-        swapColors={isDark}
-        tags={[
-          { id: 'javascript', label: 'JavaScript' },
-          { id: 'php', label: 'PHP 5' },
-          { id: 'mysql', label: 'MySQL' },
-          { id: 'memcache', label: 'Memcache' },
-        ]}
-        themeId={themeId}
-        width={itemWidth}
-      >
-        <TimelineItemList
-          accentColor={isDark ? '#ffffff' : '#000000'}
-          items={[
-            'Built a high-performance site search engine from scratch using Sphinx, dramatically improving query speed.',
-            'Implemented advertising takeovers across partner sites, boosting ad revenue and increasing visibility.',
-            'Developed a customizable and themeable Google Maps integration, ensuring quick and seamless integration.',
-            'Designed and implemented an intuitive friend management system and news feed, driving greater user engagement.',
-            'Optimized data retrieval with Memcache, reducing load times and significantly enhancing site responsiveness.',
           ]}
         />
       </TimelineItem>

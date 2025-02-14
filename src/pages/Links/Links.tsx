@@ -1,10 +1,11 @@
 import { Fragment, memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Flex, Rhythm, ColoredIconButton, ColoredIconButtonProps, useGetHeight, useGetWidth } from '@phork/phorkit';
-import { APP_NAME, GITHUB, INSTAGRAM, PHORKIT, TWITTER } from 'config/strings';
+import { APP_NAME, GITHUB, INSTAGRAM, LINKEDIN, PHORKIT, TWITTER } from 'config/strings';
 import { CreditsButton } from 'components/CreditsButton';
 import { PagePaper } from 'components/PagePaper';
 import { showLandscapeLayout } from 'utils/sizeUtils';
+import { LinkedinIcon } from 'icons';
 import { GithubIcon } from 'icons/GithubIcon';
 import { HeartIcon } from 'icons/HeartIcon';
 import { InstagramIcon } from 'icons/InstagramIcon';
@@ -112,23 +113,23 @@ export const Links = memo(function Links() {
                       <ColoredIconButton<'a'>
                         as="a"
                         colorId="P10"
-                        href={GITHUB}
+                        href={LINKEDIN}
                         rel="noopener"
                         target="_blank"
                         {...buttonProps}
                       >
-                        <GithubIcon size={20} title="Github" />
+                        <LinkedinIcon size={20} title="LinkedIn" />
                       </ColoredIconButton>
 
                       <ColoredIconButton<'a'>
                         as="a"
                         colorId="P20"
-                        href={INSTAGRAM}
+                        href={GITHUB}
                         rel="noopener"
                         target="_blank"
                         {...buttonProps}
                       >
-                        <InstagramIcon size={20} title="Instagram" />
+                        <GithubIcon size={20} title="GitHub" />
                       </ColoredIconButton>
                     </Rhythm>
                   </Flex>
@@ -137,12 +138,12 @@ export const Links = memo(function Links() {
                       <ColoredIconButton<'a'>
                         as="a"
                         colorId="P30"
-                        href={TWITTER}
+                        href={INSTAGRAM}
                         rel="noopener"
                         target="_blank"
                         {...buttonProps}
                       >
-                        <TwitterIcon size={20} title="Twitter" />
+                        <InstagramIcon size={20} title="Instagram" />
                       </ColoredIconButton>
 
                       <CreditsButton<typeof ColoredIconButton>>

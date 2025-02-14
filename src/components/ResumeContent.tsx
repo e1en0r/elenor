@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 import { memo, useCallback, useState } from 'react';
-import { Flex, StyledIconButton, Rhythm, themes, useThemeId, Avatar } from '@phork/phorkit';
+import { Flex, Rhythm, Avatar, Typography } from '@phork/phorkit';
 import { TIMELINE_GUTTER_WIDTH, TIMELINE_POINTER_SIZE, TIMELINE_STRADDLED_LEFT_WIDTH } from 'config/sizes';
+import { GITHUB, LINKEDIN } from 'config/strings';
 import { viewports } from 'config/viewports';
-import { Headline } from 'components/Headline';
+import { Section, SubSection } from 'components/Headline';
+import { ResumeIconButton } from 'components/ResumeIconButton';
 import { Skills } from 'components/Skills/Skills';
 import { Timeline } from 'components/Timeline';
-import { ExpandIcon, CollapseIcon } from 'icons/index';
+import { ExpandIcon, CollapseIcon, GithubSolidIcon, LinkedinIcon } from 'icons/index';
 
 const COLUMN_BREAKPOINT = 1380;
 const MAXIMUM_PFP_WIDTH = 400;
@@ -29,9 +31,12 @@ const GridLayout = styled.div`
 
 const LeftColumn = styled(Rhythm)`
   align-self: start;
+  width: fit-content;
+  margin-top: 36px;
 
   @media (max-width: ${COLUMN_BREAKPOINT}px) {
     justify-self: end;
+    margin-top: 0;
   }
 
   @media (max-width: ${viewports.small.max}px) {
@@ -48,13 +53,13 @@ const RightColumn = styled(Flex)`
   }
 `;
 
-// this visually centers the avatar over the timeline and under the name
+// this visually centers the avatar over the introduction and under the name
 const AvatarContainer = styled(Flex)`
   margin-left: 84px;
 
   @media (max-width: ${COLUMN_BREAKPOINT}px) {
     margin-left: 0;
-    margin-right: 110px;
+    margin-right: 32px;
   }
 
   @media (max-width: ${viewports.small.max}px) {
@@ -62,10 +67,8 @@ const AvatarContainer = styled(Flex)`
   }
 `;
 
-// this visually aligns the skills with the timeline content
-const IndentedSkills = styled(Skills, {
-  shouldForwardProp: prop => prop !== 'isTimelineStraddled',
-})<{ isTimelineStraddled: boolean }>`
+// this visually aligns the right column content with the timeline content
+const RightColumnContent = styled.div<{ isTimelineStraddled: boolean }>`
   padding-left: ${({ isTimelineStraddled }) =>
     isTimelineStraddled ? TIMELINE_STRADDLED_LEFT_WIDTH + TIMELINE_POINTER_SIZE * 2 : TIMELINE_GUTTER_WIDTH}px;
 `;
@@ -76,9 +79,8 @@ export type ResumeContentProps = {
 };
 
 export const ResumeContent = memo(function ResumeContent({ alignRight, width }: ResumeContentProps) {
-  const themeId = useThemeId();
-
   const isTimelineStraddled = !!alignRight;
+  const isCentered = width <= viewports.small.max;
 
   const timelineWidth = Math.max(
     MINIMUM_TIMELINE_WIDTH,
@@ -101,8 +103,8 @@ export const ResumeContent = memo(function ResumeContent({ alignRight, width }: 
 
   return (
     <GridLayout>
-      <LeftColumn grouped mb={12} mt={4}>
-        <AvatarContainer>
+      <LeftColumn grouped mb={isCentered ? 6 : 12}>
+        <AvatarContainer direction="column">
           <Avatar
             aria-label="Profile picture"
             color="neutral"
@@ -116,35 +118,82 @@ export const ResumeContent = memo(function ResumeContent({ alignRight, width }: 
               } as React.CSSProperties
             }
           />
+
+          <Rhythm mt={13}>
+            <Flex full justifyContent="center">
+              <SubSection>Los Angeles, CA</SubSection>
+            </Flex>
+          </Rhythm>
         </AvatarContainer>
       </LeftColumn>
       <RightColumn alignItems={alignRight ? 'flex-end' : 'center'} direction="column">
         <Rhythm mb={10}>
+          <Section>Introduction</Section>
+        </Rhythm>
+
+        <RightColumnContent isTimelineStraddled={isTimelineStraddled} style={{ maxWidth: MAXIMUM_TIMELINE_WIDTH }}>
+          <Rhythm mb={4}>
+            <Typography<'div'>
+              align={isCentered ? 'left' : 'right'}
+              as="div"
+              size="2xlarge"
+              variants={['line-height-comfy']}
+            >
+              Senior Software Engineer with 15+ years of experience building scalable, sustainable, high-performance web
+              applications. Expertise in React, TypeScript, and current front-end technologies, with a proven track
+              record in optimizing performance, mentoring teams, and driving cross-functional collaboration to deliver
+              exceptional results.
+            </Typography>
+          </Rhythm>
+        </RightColumnContent>
+
+        <Flex alignItems="flex-end" direction="row" justifyContent="center">
+          <Rhythm mb={12}>
+            <ResumeIconButton<'a'>
+              as="a"
+              href={GITHUB}
+              rel="noopener"
+              size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
+              target="_blank"
+              weight="inline"
+            >
+              <GithubSolidIcon size={32} />
+            </ResumeIconButton>
+            <ResumeIconButton<'a'>
+              as="a"
+              href={LINKEDIN}
+              rel="noopener"
+              size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
+              target="_blank"
+              weight="inline"
+            >
+              <LinkedinIcon size={32} title="LinkedIn" />
+            </ResumeIconButton>
+          </Rhythm>
+        </Flex>
+
+        <Rhythm mb={10}>
           <Flex alignItems="center" direction="row">
-            <Rhythm mb={1} mr={2}>
-              <StyledIconButton
-                activePrimaryColor={themes[themeId]['primary-palette-quiet-color']}
+            <Rhythm mb={1} mr={4}>
+              <ResumeIconButton
                 as="button"
-                hoveredPrimaryColor={themes[themeId]['primary-palette-quiet-color']}
-                inverseColor={themes[themeId]['primary-palette-background-color']}
                 onClick={handleToggleExperience}
-                primaryColor={themes[themeId]['primary-palette-text-color']}
-                shape="circle"
                 size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
-                weight="solid"
               >
                 <ExperienceIcon size={width && width < viewports.small.max ? 24 : 32} />
-              </StyledIconButton>{' '}
+              </ResumeIconButton>
             </Rhythm>
-            <Headline>{width && width < viewports.small.max ? 'Experience' : 'Work Experience'}</Headline>
+            <Section>{width && width < viewports.small.max ? 'Experience' : 'Work Experience'}</Section>
           </Flex>
         </Rhythm>
         <Timeline expanded={expandExperience} isStraddled={isTimelineStraddled} width={timelineWidth} />
 
         <Rhythm mb={10} mt={15}>
-          <Headline>Skills</Headline>
+          <Section>Skills</Section>
         </Rhythm>
-        <IndentedSkills isTimelineStraddled={isTimelineStraddled} />
+        <RightColumnContent isTimelineStraddled={isTimelineStraddled}>
+          <Skills />
+        </RightColumnContent>
       </RightColumn>
     </GridLayout>
   );
