@@ -16,7 +16,7 @@ const GRID_GAP_WIDTH = 40;
 
 const MINIMUM_TIMELINE_GUTTER = TIMELINE_GUTTER_WIDTH * 2;
 const MAXIMUM_TIMELINE_WIDTH = 788;
-const MINIMUM_TIMELINE_WIDTH = 350;
+const MINIMUM_TIMELINE_WIDTH = 320;
 
 const GridLayout = styled.div`
   display: grid;
@@ -71,6 +71,10 @@ const AvatarContainer = styled(Flex)`
 const RightColumnContent = styled.div<{ isTimelineStraddled: boolean }>`
   padding-left: ${({ isTimelineStraddled }) =>
     isTimelineStraddled ? TIMELINE_STRADDLED_LEFT_WIDTH + TIMELINE_POINTER_SIZE * 2 : TIMELINE_GUTTER_WIDTH}px;
+
+  @media (max-width: ${viewports.small.max}px) {
+    padding-left: 0;
+  }
 `;
 
 export type ResumeContentProps = {

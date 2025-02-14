@@ -13,7 +13,7 @@ export const Headline = styled.h1`
   width: fit-content;
 
   @media (max-width: ${viewports.small.max}px) {
-    font-size: 30px;
+    font-size: 28px;
     margin-right: -4px;
   }
 `;
