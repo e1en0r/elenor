@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { ThemeProps, useThemeId } from '@phork/phorkit';
 import { RivianIcon, TbwaIcon, UbiquitiIcon } from 'icons/logos';
 import { TimelineItem } from './TimelineItem';
@@ -24,7 +24,7 @@ export const TimelineContent = ({
   const themeId = useThemeId(initThemeId);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <TimelineLabel first position={labelPosition} themeId={themeId} width={labelWidth}>
         2022 - 2024
       </TimelineLabel>
@@ -121,7 +121,7 @@ export const TimelineContent = ({
           ]}
         />
       </TimelineItem>
-    </React.Fragment>
+    </Fragment>
   );
 };
 

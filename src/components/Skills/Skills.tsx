@@ -1,4 +1,6 @@
-import { Flex, Rhythm } from '@phork/phorkit';
+import { Fragment } from 'react';
+import { Flex, Link, Rhythm } from '@phork/phorkit';
+import { PHORKIT } from 'config/strings';
 import { SkillsItem } from 'components/Skills/SkillsItem';
 
 export type SkillsProps = React.HTMLAttributes<HTMLDivElement>;
@@ -42,7 +44,23 @@ export const Skills = (props: SkillsProps): JSX.Element => {
           label="Other Tools & Skills"
           skills={['Node.js', 'MySQL', 'PostgreSQL', 'AWS', 'Docker', 'A11y', 'Linux', 'UI/UX', 'Lucidchart']}
         />
-        <SkillsItem label="Hobbies" skills={['Phork/it', 'crypto', 'NFTs', 'mechanical keyboards']} />
+        <SkillsItem
+          label="Hobbies"
+          skills={[
+            [
+              'phorkit',
+              <Fragment key="phorkit-link">
+                Building{' '}
+                <Link underline unthemed href={PHORKIT} rel="noopener" target="_blank">
+                  Phork/it
+                </Link>
+              </Fragment>,
+            ],
+            'crypto',
+            'NFTs',
+            'mechanical keyboards',
+          ]}
+        />
       </Rhythm>
     </Flex>
   );

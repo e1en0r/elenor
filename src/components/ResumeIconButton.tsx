@@ -17,8 +17,6 @@ export const ResumeIconButton = <T extends IconButtonElementType = 'button'>({
     --button-active-primary-color: ${themes[themeId]['primary-palette-quiet-color']};
   `;
 
-  console.log(className);
-
   return (
     <IconButton<T>
       unthemed
