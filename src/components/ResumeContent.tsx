@@ -153,24 +153,10 @@ export const ResumeContent = memo(function ResumeContent({ alignRight, width }: 
 
         <Flex alignItems="flex-end" direction="row" justifyContent="center">
           <Rhythm mb={12}>
-            <ResumeIconButton<'a'>
-              as="a"
-              href={GITHUB}
-              rel="noopener"
-              size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
-              target="_blank"
-              weight="inline"
-            >
+            <ResumeIconButton<'a'> as="a" href={GITHUB} rel="noopener" size="4xlarge" target="_blank" weight="inline">
               <GithubSolidIcon size={32} />
             </ResumeIconButton>
-            <ResumeIconButton<'a'>
-              as="a"
-              href={LINKEDIN}
-              rel="noopener"
-              size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
-              target="_blank"
-              weight="inline"
-            >
+            <ResumeIconButton<'a'> as="a" href={LINKEDIN} rel="noopener" size="4xlarge" target="_blank" weight="inline">
               <LinkedinIcon size={32} title="LinkedIn" />
             </ResumeIconButton>
           </Rhythm>
