@@ -3,7 +3,7 @@ import { CreditsButton } from 'components/CreditsButton';
 import { fireEvent, render } from '../utils';
 
 describe('<CreditsButton />', () => {
-  it('should render a button', () => {
+  it('renders a button', () => {
     const { getByText } = render(
       <CreditsButton>
         <button>Credits</button>
@@ -13,7 +13,7 @@ describe('<CreditsButton />', () => {
     expect(getByText('Credits')).toBeTruthy();
   });
 
-  it('should trigger a modal on click', () => {
+  it('triggers a modal on click', () => {
     const createModal = jest.fn();
 
     const { getByTestId } = render(

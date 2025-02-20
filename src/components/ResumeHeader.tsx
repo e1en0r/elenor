@@ -50,6 +50,7 @@ export const ResumeHeader = ({ width }: ResumeHeaderProps): JSX.Element => {
   const themeId = useThemeId();
   const ThemeIcon: React.FC<SvgIconProps> = themeId === 'dark' ? SunIcon : MoonIcon;
   const toggleThemeLabel = themeId === 'dark' ? 'Use light theme' : 'Use dark theme';
+  const toggleThemeIcon = themeId === 'dark' ? 'Sun icon' : 'Moon icon';
 
   const { toggleThemeId } = useContext(ThemeContext);
   const handleThemeClick = () => toggleThemeId();
@@ -67,8 +68,9 @@ export const ResumeHeader = ({ width }: ResumeHeaderProps): JSX.Element => {
           key="theme"
           onClick={handleThemeClick}
           size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
+          title={toggleThemeLabel}
         >
-          <ThemeIcon size={width && width < viewports.small.max ? 24 : 32} title={toggleThemeLabel} />
+          <ThemeIcon size={width && width < viewports.small.max ? 24 : 32} title={toggleThemeIcon} />
         </ResumeIconButton>
       </Position>
     </Container>

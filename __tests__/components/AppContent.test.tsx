@@ -9,7 +9,7 @@ jest.mock('pages/Resume', () => () => <div>Home</div>);
 jest.mock('pages/FourOhFour', () => () => <div>404</div>);
 
 describe('<AppContent />', () => {
-  it('should render the content', async () => {
+  it('renders the content', async () => {
     const { findByText, findByTestId } = render(
       <BrowserRouter
         future={{

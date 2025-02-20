@@ -6,7 +6,7 @@ import { GITHUB, LINKEDIN } from 'config/strings';
 import { viewports } from 'config/viewports';
 import { Section, SubSection } from 'components/Headline';
 import { ResumeIconButton } from 'components/ResumeIconButton';
-import { Skills } from 'components/Skills/Skills';
+import { Skills } from 'components/Skills';
 import { Timeline } from 'components/Timeline';
 import { ExpandIcon, CollapseIcon, GithubSolidIcon, LinkedinIcon } from 'icons/index';
 
@@ -153,11 +153,27 @@ export const ResumeContent = memo(function ResumeContent({ alignRight, width }: 
 
         <Flex alignItems="flex-end" direction="row" justifyContent="center">
           <Rhythm mb={12}>
-            <ResumeIconButton<'a'> as="a" href={GITHUB} rel="noopener" size="4xlarge" target="_blank" weight="inline">
-              <GithubSolidIcon size={32} />
+            <ResumeIconButton<'a'>
+              as="a"
+              href={GITHUB}
+              rel="noopener"
+              size="4xlarge"
+              target="_blank"
+              title="Open GitHub"
+              weight="inline"
+            >
+              <GithubSolidIcon size={32} title="GitHub icon" />
             </ResumeIconButton>
-            <ResumeIconButton<'a'> as="a" href={LINKEDIN} rel="noopener" size="4xlarge" target="_blank" weight="inline">
-              <LinkedinIcon size={32} title="LinkedIn" />
+            <ResumeIconButton<'a'>
+              as="a"
+              href={LINKEDIN}
+              rel="noopener"
+              size="4xlarge"
+              target="_blank"
+              title="Open LinkedIn"
+              weight="inline"
+            >
+              <LinkedinIcon size={32} title="LinkedIn icon" />
             </ResumeIconButton>
           </Rhythm>
         </Flex>
@@ -166,12 +182,17 @@ export const ResumeContent = memo(function ResumeContent({ alignRight, width }: 
           <Flex alignItems="center" direction="row">
             <Rhythm mb={1} mr={4}>
               <ResumeIconButton
+                aria-expanded={isExperienceExpanded}
+                aria-label={isExperienceExpanded ? 'Collapse experience details' : 'Expand experience details'}
                 as="button"
                 onClick={handleToggleExperience}
                 size={width && width < viewports.small.max ? 'xlarge' : '4xlarge'}
                 title={isExperienceExpanded ? 'Collapse experience details' : 'Expand experience details'}
               >
-                <ExperienceIcon size={width && width < viewports.small.max ? 24 : 32} />
+                <ExperienceIcon
+                  size={width && width < viewports.small.max ? 24 : 32}
+                  title={isExperienceExpanded ? 'Collapse icon' : 'Expand icon'}
+                />
               </ResumeIconButton>
             </Rhythm>
             <Section>{width && width < viewports.small.max ? 'Experience' : 'Work Experience'}</Section>

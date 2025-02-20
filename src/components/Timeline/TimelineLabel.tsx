@@ -8,13 +8,17 @@ import {
   Typography,
 } from '@phork/phorkit';
 
-type TimelineLabelProps = Pick<TimelineDividerItemProps, 'first' | 'last' | 'position' | 'width' | 'themeId'> & {
+type TimelineLabelProps = Pick<
+  TimelineDividerItemProps,
+  'first' | 'last' | 'position' | 'width' | 'style' | 'themeId'
+> & {
   children: React.ReactChild | React.ReactFragment;
 };
 
 export const TimelineLabel = ({
   children,
   position = 'left-center',
+  style: initStyle,
   themeId: initThemeId,
   ...props
 }: TimelineLabelProps): JSX.Element => {
@@ -23,6 +27,7 @@ export const TimelineLabel = ({
   const style = {
     '--timeline-item-connector-color': themes[themeId]['primary-palette-border-color'],
     '--status-bubble-triangle-color': themes[themeId]['tertiary-palette-background-color'],
+    ...initStyle,
   } as React.CSSProperties;
 
   return (

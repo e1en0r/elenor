@@ -2,7 +2,7 @@ import { MissingContentAlert } from 'components/MissingContentAlert';
 import { render } from '../utils';
 
 describe('<MissingContentAlert />', () => {
-  it('should render the alert message and icon', () => {
+  it('renders the alert message and icon', () => {
     const { container, getByText } = render(<MissingContentAlert color="warning" message="Alert!" />);
 
     expect(getByText('Alert!')).toBeTruthy();

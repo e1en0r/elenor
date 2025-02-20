@@ -7,7 +7,7 @@ export function TbwaIcon({ title, titleId = uuid(), ...initProps }: SvgIconProps
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby={titleId} {...props}>
       {title === undefined ? (
-        <title id={titleId}>{'TBWA\\Chiat\\Day'}</title>
+        <title id={titleId}>{'TBWA Chiat Day'}</title>
       ) : title ? (
         <title id={titleId}>{title}</title>
       ) : null}

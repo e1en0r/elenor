@@ -5,7 +5,7 @@ import { TimelineItem } from './TimelineItem';
 import { TimelineItemList } from './TimelineItemList';
 import { TimelineLabel } from './TimelineLabel';
 
-type TimelineContentProps = Pick<ThemeProps, 'themeId'> & {
+export type TimelineContentProps = Pick<ThemeProps, 'themeId'> & {
   expanded?: boolean;
   itemPosition: 'left-center' | 'right-center';
   itemWidth: number;

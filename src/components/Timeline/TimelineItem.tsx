@@ -77,6 +77,7 @@ export const TimelineItem = ({
   tags,
   themeId: initThemeId,
   width,
+  ...props
 }: TimelineItemProps): JSX.Element => {
   const themeId = useThemeId(initThemeId);
 
@@ -99,6 +100,7 @@ export const TimelineItem = ({
         style={style}
         triangleSize={TIMELINE_POINTER_SIZE}
         width={width}
+        {...props}
       >
         <Paper color="tertiary">
           <GridContainer>
